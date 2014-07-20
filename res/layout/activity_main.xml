@@ -1,12 +1,36 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="${packageName}.${activityClass}" >
+    tools:context="${packageName}.${activityClass}"
+    android:orientation="vertical" >
 
-    <TextView
+    <ToggleButton
+        android:id="@+id/toggleAlarmOnOff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:textOn="Turn OFF alarm"
+        android:textOff="Turn ON alarm" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/buttonAlarmStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alarm status" />
+
+    
+    <ScrollView
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:scrollbars="vertical"
+	    android:fillViewport="true">
+    
+	    <TextView
+	        android:id="@+id/textViewInfo"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="..." />
+    
+    </ScrollView>
+    
+</LinearLayout>
