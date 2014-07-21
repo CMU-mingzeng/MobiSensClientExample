@@ -20,6 +20,7 @@ Initialize the library by adding the following line:
 
     Configurations.setUsernameAndPassword(context, <username>, <password>);
 
+''NOTE: Please request an username and password for your application.''
 
 
 ### Sensing
