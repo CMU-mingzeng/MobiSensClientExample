@@ -13,8 +13,8 @@ Use MobiSens in an existing app
 
 Copy the following files and text from this MobiSensClientExample project to an existing app:
 
-- jar files in the lib/ directory  
-- lines in AndroidManifest.xml, which are annotated with <!-- MobiSensLibrary ... -->
+- jar files in the `lib` directory  
+- lines in `AndroidManifest.xml`, which are annotated with `<!-- MobiSensLibrary ... -->`
 
 Initialize the library by adding the following line:
 
@@ -34,7 +34,7 @@ To stop the data collection:
     
 To check whether the system is currently collecting data:
     
-    Configurations.isSensing(thisActivity)
+    Configurations.isSensing(context)
 
 
 Sensing is 
@@ -53,15 +53,42 @@ To check the current sensing interval call:
 
 
 
-
-
 ### Query data
 
-- Activity Sessions
-- Activity Stats
-- 
+#### Activity sessions
+
+An **activity session** is defined as a time segment, in which the user performed the same activity (e.g. from 10:00 to 10:15 the user was running). The get a chronological list of activity sessions call:
+
+    QueryManager.getActivitySessions(Context context, MSHandler msHandler, Date sessionsFromDate, Date sessionsToDate) 
+
+Through the `MSHandler` you can define the callback function `onResults(List results)`, which can be used to consume the results. `sessionsFromDate` and `sessionsToDate` defines the time period of interest (e.g., search for all activity session, which happened today between 10:00 to 11:00).
+
+The following function sets `sessionsToDate` to the current time:
+
+    QueryManager.getActivitySessions(Context context, MSHandler msHandler, Date sessionsFromDate)
+
+And through following function you obtain all activity sessions, which happened in the last 24 hours:
+
+    QueryManager.getActivitySessions(Context context, MSHandler msHandler)
+
+
+NOTE: All queries return a maximum of 100 entries (e.g. activity sessions) to avoid overloading the server.
+
+
+#### Activity stats
+Often we are interested in a summary of user activities (e.g., how many minutes did the user walked today?). The following call returns a list of activities and the total amount of time the user performed them:
+    
+    QueryManager.getActivityStats(Context context, MSHandler msHandler, Date sessionsFromDate, final Date sessionsToDate)
+	
+
+Similar to the activity sessions, we are providing the following functionalities:
+
+    QueryManager.getActivityStats(Context context, MSHandler msHandler, Date sessionsFromDate)
+    QueryManager.getActivityStats(Context context, MSHandler msHandler)
+
+
 
 
 ### NOTE
-If you find an mistake in this documentation, feel free to update/correct it. 
+If you find an mistake or something missing in this documentation, feel free to update/correct it or let us know.
 
