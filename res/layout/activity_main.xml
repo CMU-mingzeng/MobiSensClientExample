@@ -9,8 +9,8 @@
         android:id="@+id/toggleAlarmOnOff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textOn="Turn OFF alarm"
-        android:textOff="Turn ON alarm" />
+        android:textOn="Turn OFF sensing"
+        android:textOff="Turn ON sensing" />
 
     <Button
         android:id="@+id/buttonAlarmStatus"

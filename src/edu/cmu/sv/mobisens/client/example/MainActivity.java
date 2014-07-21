@@ -79,7 +79,7 @@ public class MainActivity extends Activity {
 		});
 		
 		
-		
+		 
 		
 		
 		buttonAlarmStatus.setOnClickListener(new OnClickListener() {
@@ -91,7 +91,6 @@ public class MainActivity extends Activity {
 				StringBuffer sb = new StringBuffer();
 				sb.append(new Date()).append("\n");
 				sb.append("Sensing activated: ").append(Configurations.isSensing(thisActivity)).append("\n");
-				sb.append("Sensing activated (preferences): ").append(Configurations.isSensingPreferences(thisActivity) ).append("\n");
 				sb.append("Sampling rate (ms): ").append(Configurations.getSensingInterval(thisActivity)).append("\n");
 			
 				
