@@ -153,15 +153,15 @@ public class MainActivity extends Activity {
 						
 						for(Object o: results){
 							
-							MSObject activitySession = (MSObject) o;
+							MSObject activityStats = (MSObject) o;
 							
-							sb	.append(activitySession.getStartTs())
+							sb	.append(activityStats.getStartTs())
 								.append(" - ")
-								.append(getTimeFormat(activitySession.getEndTs().getTime() - activitySession.getStartTs().getTime()))
+								.append(getTimeFormat(activityStats.getEndTs().getTime() - activityStats.getStartTs().getTime()))
 								.append(" min - ")
-								.append(activitySession.getName())
+								.append(activityStats.getName())
 								.append(": ")
-								.append(getTimeFormat(activitySession.getDurationInMillis()))
+								.append(getTimeFormat(activityStats.getDurationInMillis()))
 								.append("\n");
 						}
 						
