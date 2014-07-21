@@ -11,7 +11,7 @@ Use MobiSens in an existing app
 
 ### Setup
 
-Copy the following files and text from this MobiSensClientExample project to an existing app:
+Copy the following files and text from this MobiSensClientExample project into an existing app:
 
 - jar files in the `lib` directory  
 - lines in `AndroidManifest.xml`, which are annotated with `<!-- MobiSensLibrary ... -->`
@@ -20,7 +20,7 @@ Initialize the library by adding the following line:
 
     Configurations.setUsernameAndPassword(context, <username>, <password>);
 
-''NOTE: Please request an username and password for your application.''
+**NOTE: Please request an username and password for your application.**
 
 
 ### Sensing
@@ -37,8 +37,6 @@ To check whether the system is currently collecting data:
     
     Configurations.isSensing(context)
 
-
-Sensing is 
 
 
 ### Configuration
