@@ -15,6 +15,7 @@ Copy the following files and text from this MobiSensClientExample project into a
 
 - jar files in the `lib` directory  
 - lines in `AndroidManifest.xml`, which are annotated with `<!-- MobiSensLibrary ... -->`
+	- Change ``edu.cmu.sv.mobisens.client`` on the line ``<category android:name="edu.cmu.sv.mobisens.client" />`` to match your app's package name.
 
 Initialize the library by adding the following line:
 
@@ -74,16 +75,16 @@ And through following function you obtain all activity sessions, which happened 
 NOTE: All queries return a maximum of 100 entries (e.g. activity sessions) to avoid overloading the server.
 
 
-#### Activity stats
-Often we are interested in a summary of user activities (e.g., how many minutes did the user walked today?). The following call returns a list of activities and the total amount of time the user performed them:
+#### Activity summary
+Often we are interested in only a summary of user activities (e.g., how many minutes did the user walked today?). The following call returns a list of activities and the total amount of time the user performed them:
     
-    QueryManager.getActivityStats(Context context, MSHandler msHandler, Date statsFromTime, final Date statsToTime)
+    QueryManager.getActivitySummary(Context context, MSHandler msHandler, Date statsFromTime, final Date statsToTime)
 	
 
 Similar to the activity sessions, we are providing the following functionalities:
 
-    QueryManager.getActivityStats(Context context, MSHandler msHandler, Date statsFromTime)
-    QueryManager.getActivityStats(Context context, MSHandler msHandler)
+    QueryManager.getActivitySummary(Context context, MSHandler msHandler, Date statsFromTime)
+    QueryManager.getActivitySummary(Context context, MSHandler msHandler)
 
 
 
