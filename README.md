@@ -13,8 +13,12 @@ Use MobiSens in an existing app
 
 Copy the following files and text from this MobiSensClientExample project into an existing app:
 
-- jar files in the `lib` directory  
-- lines in `AndroidManifest.xml`, which are annotated with `<!-- MobiSensLibrary ... -->`
+- copy jar files in the `lib` directory  
+- copy lines in `AndroidManifest.xml`, which are annotated with `<!-- MobiSensLibrary ... -->`
+- change ``edu.cmu.sv.mobisens.client.example`` on the following lines of the Manifest to match your app's package name: 
+	- ``<permission android:protectionLevel="signature" android:name="edu.cmu.sv.mobisens.client.example.permission.C2D_MESSAGE" />``
+	- ``<uses-permission android:name="edu.cmu.sv.mobisens.client.example.permission.C2D_MESSAGE" />``
+	- ``<category android:name="edu.cmu.sv.mobisens.client.example" />``
 
 Initialize the library by adding the following line:
 
@@ -58,13 +62,13 @@ To check the current sensing interval call:
 
 An **activity session** is defined as a time segment, in which the user performed the same activity (e.g. from 10:00 to 10:15 the user was running). The get a chronological list of activity sessions call:
 
-    QueryManager.getActivitySessions(Context context, MSHandler msHandler, Date sessionsFromDate, Date sessionsToDate) 
+    QueryManager.getActivitySessions(Context context, MSHandler msHandler, Date sessionsFromTime, Date sessionsToTime) 
 
-Through the `MSHandler` you can define the callback function `onResults(List results)`, which can be used to consume the results. `sessionsFromDate` and `sessionsToDate` defines the time period of interest (e.g., search for all activity session, which happened today between 10:00 to 11:00).
+Through the `MSHandler` you can define the callback function `onResults(List results)`, which can be used to consume the results. `sessionsFromTime` and `sessionsToTime` defines the time period of interest (e.g., search for all activity session, which happened today between 10:00 to 11:00).
 
-The following function sets `sessionsToDate` to the current time:
+The following function sets `sessionsToTime` to the current time:
 
-    QueryManager.getActivitySessions(Context context, MSHandler msHandler, Date sessionsFromDate)
+    QueryManager.getActivitySessions(Context context, MSHandler msHandler, Date sessionsFromTime)
 
 And through following function you obtain all activity sessions, which happened in the last 24 hours:
 
@@ -74,16 +78,16 @@ And through following function you obtain all activity sessions, which happened 
 NOTE: All queries return a maximum of 100 entries (e.g. activity sessions) to avoid overloading the server.
 
 
-#### Activity stats
-Often we are interested in a summary of user activities (e.g., how many minutes did the user walked today?). The following call returns a list of activities and the total amount of time the user performed them:
+#### Activity summary
+Often we are interested in only a summary of user activities (e.g., how many minutes did the user walked today?). The following call returns a list of activities and the total amount of time the user performed them:
     
-    QueryManager.getActivityStats(Context context, MSHandler msHandler, Date sessionsFromDate, final Date sessionsToDate)
+    QueryManager.getActivitySummary(Context context, MSHandler msHandler, Date statsFromTime, final Date statsToTime)
 	
 
 Similar to the activity sessions, we are providing the following functionalities:
 
-    QueryManager.getActivityStats(Context context, MSHandler msHandler, Date sessionsFromDate)
-    QueryManager.getActivityStats(Context context, MSHandler msHandler)
+    QueryManager.getActivitySummary(Context context, MSHandler msHandler, Date statsFromTime)
+    QueryManager.getActivitySummary(Context context, MSHandler msHandler)
 
 
 
