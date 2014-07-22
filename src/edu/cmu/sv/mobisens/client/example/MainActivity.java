@@ -106,7 +106,7 @@ public class MainActivity extends Activity {
 //				cal.add(Calendar.HOUR_OF_DAY, -1);
 				cal.add(Calendar.DAY_OF_YEAR, -1);
 				
-				Date startActivitySessions = cal.getTime();
+				Date startTimeActivitySessions = cal.getTime();
 				
 				
 				QueryManager.getActivitySessions(thisActivity, new MSHandler() {
@@ -129,7 +129,7 @@ public class MainActivity extends Activity {
 						
 						textViewInfo.setText(textViewInfo.getText() + "\n\n" + sb.toString()); 
 					}
-				}, startActivitySessions);
+				}, startTimeActivitySessions);
 				
 				
 				
@@ -141,10 +141,10 @@ public class MainActivity extends Activity {
 				cal = Calendar.getInstance();
 				cal.add(Calendar.DAY_OF_YEAR, -1);
 				
-				Date startActivityStats = cal.getTime();
-//				Date startActivityStats = DateTimeManager.getStartOfToday()
+				Date startTimeActivitySummary = cal.getTime();
+//				Date startTimeActivitySummary = DateTimeManager.getStartOfToday()
 				
-				QueryManager.getActivityStats(thisActivity, new MSHandler() {
+				QueryManager.getActivitySummary(thisActivity, new MSHandler() {
 					
 					@Override
 					public void onResults(List results) {
@@ -153,21 +153,21 @@ public class MainActivity extends Activity {
 						
 						for(Object o: results){
 							
-							MSObject activityStats = (MSObject) o;
+							MSObject activitySummary = (MSObject) o;
 							
-							sb	.append(activityStats.getStartTime())
+							sb	.append(activitySummary.getStartTime())
 								.append(" - ")
-								.append(getTimeFormat(activityStats.getEndTime().getTime() - activityStats.getStartTime().getTime()))
+								.append(getTimeFormat(activitySummary.getEndTime().getTime() - activitySummary.getStartTime().getTime()))
 								.append(" min - ")
-								.append(activityStats.getName())
+								.append(activitySummary.getName())
 								.append(": ")
-								.append(getTimeFormat(activityStats.getDurationInMillis()))
+								.append(getTimeFormat(activitySummary.getDurationInMillis()))
 								.append("\n");
 						}
 						
 						textViewInfo.setText(textViewInfo.getText() + "\n\n" + sb.toString()); 
 					}
-				}, startActivityStats);
+				}, startTimeActivitySummary);
 				
 				 
 					
