@@ -15,10 +15,10 @@ Copy the following files and text from this MobiSensClientExample project into a
 
 - copy jar files in the `lib` directory  
 - copy lines in `AndroidManifest.xml`, which are annotated with `<!-- MobiSensLibrary ... -->`
-- change ``edu.cmu.sv.mobisens.client`` on the following lines of the Manifest to match your app's package name: 
-	- ``<permission android:protectionLevel="signature" android:name="edu.cmu.sv.mobisens.client.permission.C2D_MESSAGE" />``
-	- ``<uses-permission android:name="edu.cmu.sv.mobisens.client.permission.C2D_MESSAGE" />``
-	- ``<category android:name="edu.cmu.sv.mobisens.client" />``
+- change ``edu.cmu.sv.mobisens.client.example`` on the following lines of the Manifest to match your app's package name: 
+	- ``<permission android:protectionLevel="signature" android:name="edu.cmu.sv.mobisens.client.example.permission.C2D_MESSAGE" />``
+	- ``<uses-permission android:name="edu.cmu.sv.mobisens.client.example.permission.C2D_MESSAGE" />``
+	- ``<category android:name="edu.cmu.sv.mobisens.client.example" />``
 
 Initialize the library by adding the following line:
 
