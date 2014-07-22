@@ -13,9 +13,12 @@ Use MobiSens in an existing app
 
 Copy the following files and text from this MobiSensClientExample project into an existing app:
 
-- jar files in the `lib` directory  
-- lines in `AndroidManifest.xml`, which are annotated with `<!-- MobiSensLibrary ... -->`
-	- Change ``edu.cmu.sv.mobisens.client`` on the line ``<category android:name="edu.cmu.sv.mobisens.client" />`` to match your app's package name.
+- copy jar files in the `lib` directory  
+- copy lines in `AndroidManifest.xml`, which are annotated with `<!-- MobiSensLibrary ... -->`
+- change ``edu.cmu.sv.mobisens.client`` on the following lines of the Manifest to match your app's package name: 
+	- ``<permission android:protectionLevel="signature" android:name="edu.cmu.sv.mobisens.client.permission.C2D_MESSAGE" />``
+	- ``<uses-permission android:name="edu.cmu.sv.mobisens.client.permission.C2D_MESSAGE" />``
+	- ``<category android:name="edu.cmu.sv.mobisens.client" />``
 
 Initialize the library by adding the following line:
 
