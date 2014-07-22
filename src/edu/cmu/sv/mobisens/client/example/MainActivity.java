@@ -119,9 +119,9 @@ public class MainActivity extends Activity {
 							
 							MSObject activitySession = (MSObject) o;
 							
-							sb	.append(activitySession.getStartTs())
+							sb	.append(activitySession.getStartTime())
 								.append(" - ")
-								.append(getTimeFormat(activitySession.getEndTs().getTime() - activitySession.getStartTs().getTime()))
+								.append(getTimeFormat(activitySession.getEndTime().getTime() - activitySession.getStartTime().getTime()))
 								.append(" min - ")
 								.append(activitySession.getName())
 								.append("\n");
@@ -155,9 +155,9 @@ public class MainActivity extends Activity {
 							
 							MSObject activityStats = (MSObject) o;
 							
-							sb	.append(activityStats.getStartTs())
+							sb	.append(activityStats.getStartTime())
 								.append(" - ")
-								.append(getTimeFormat(activityStats.getEndTs().getTime() - activityStats.getStartTs().getTime()))
+								.append(getTimeFormat(activityStats.getEndTime().getTime() - activityStats.getStartTime().getTime()))
 								.append(" min - ")
 								.append(activityStats.getName())
 								.append(": ")
