@@ -13,6 +13,12 @@
     <!-- MobiSensLibrary - START -->
    	<uses-permission android:name="android.permission.VIBRATE"/>
     
+   	
+    <uses-permission android:name="android.permission.READ_LOGS"/> <!-- FOR Crittercism -->
+    <uses-permission android:name="android.permission.GET_TASKS"/> <!-- FOR Crittercism -->
+    
+    
+   	
     <uses-permission android:name="android.permission.INTERNET" /> 
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- FOR PARSE -->
     
