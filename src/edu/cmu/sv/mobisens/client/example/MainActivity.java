@@ -4,23 +4,21 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-
-import edu.cmu.sv.mobisens.library.api.Configurations;
-import edu.cmu.sv.mobisens.library.api.ContextManager;
-import edu.cmu.sv.mobisens.library.api.QueryManager;
-import edu.cmu.sv.mobisens.library.query.MSHandler;
-import edu.cmu.sv.mobisens.library.query.MSObject;
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.ToggleButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
+import edu.cmu.sv.mobisens.library.api.Configurations;
+import edu.cmu.sv.mobisens.library.api.ContextManager;
+import edu.cmu.sv.mobisens.library.api.QueryManager;
+import edu.cmu.sv.mobisens.library.query.MSActivitySummary;
+import edu.cmu.sv.mobisens.library.query.MSHandler;
+import edu.cmu.sv.mobisens.library.query.MSObject;
 
 public class MainActivity extends Activity {
 
@@ -153,7 +151,7 @@ public class MainActivity extends Activity {
 						
 						for(Object o: results){
 							
-							MSObject activitySummary = (MSObject) o;
+							MSActivitySummary activitySummary = (MSActivitySummary) o;
 							
 							sb	.append(activitySummary.getStartTime())
 								.append(" - ")
