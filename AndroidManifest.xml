@@ -50,7 +50,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         
-        android:name="edu.cmu.sv.mobisens.library.managers.MobiSensLibraryApplication"> <!-- MobiSensLibrary - ADD THIS LINE -->
+        android:name="edu.cmu.sv.mobisens.client.example.MobiSensClientExampleApplication"> 
         
         
         
