@@ -25,7 +25,7 @@ Let's assume that an app called **TargetApp** wants to integrate the MobiSens Li
 Initialize the library by adding the following into your [Application class](http://developer.android.com/reference/android/app/Application.html):
 
 - MobiSensLibraryApplication.applicationInit(Application application);
-- Configurations.setUsernameAndPassword(Context context, <username>, <password>);
+- Configurations.setUsernameAndPassword(Context context, "username", "password");
 
 **NOTE: Please request an username and password for your application.**
 
