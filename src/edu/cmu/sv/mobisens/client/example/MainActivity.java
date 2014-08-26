@@ -46,14 +46,6 @@ public class MainActivity extends Activity {
 		
 		
 		
-		
-		
-		
-		Configurations.setUsernameAndPassword(thisActivity, "mobisensclientexample", "just4now");
-		
-		
-		
-		
 		toggleAlarmOnOff = (ToggleButton) findViewById(R.id.toggleAlarmOnOff);
 		buttonAlarmStatus = (Button) findViewById(R.id.buttonAlarmStatus);
 		textViewInfo = (TextView) findViewById(R.id.textViewInfo);
