@@ -13,7 +13,6 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.ToggleButton;
-import edu.cmu.sv.mobisens.library.api.Configurations;
 import edu.cmu.sv.mobisens.library.api.ContextManager;
 import edu.cmu.sv.mobisens.library.api.QueryManager;
 import edu.cmu.sv.mobisens.library.query.MSActivitySummary;
@@ -50,7 +49,7 @@ public class MainActivity extends Activity {
 		buttonAlarmStatus = (Button) findViewById(R.id.buttonAlarmStatus);
 		textViewInfo = (TextView) findViewById(R.id.textViewInfo);
 		
-		toggleAlarmOnOff.setChecked(Configurations.isSensing(thisActivity));
+		toggleAlarmOnOff.setChecked(ContextManager.isSensing(thisActivity));
 		
 		
 		toggleAlarmOnOff.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -80,8 +79,8 @@ public class MainActivity extends Activity {
 				
 				StringBuffer sb = new StringBuffer();
 				sb.append(new Date()).append("\n");
-				sb.append("Sensing activated: ").append(Configurations.isSensing(thisActivity)).append("\n");
-				sb.append("Sampling rate (ms): ").append(Configurations.getSensingInterval(thisActivity)).append("\n");
+				sb.append("Sensing activated: ").append(ContextManager.isSensing(thisActivity)).append("\n");
+				sb.append("Sampling rate (ms): ").append(ContextManager.getSensingInterval(thisActivity)).append("\n");
 			
 				
 				textViewInfo.setText(sb.toString()); 

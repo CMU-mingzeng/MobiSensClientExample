@@ -1,8 +1,7 @@
 package edu.cmu.sv.mobisens.client.example;
 
 import android.app.Application;
-import edu.cmu.sv.mobisens.library.api.Configurations;
-import edu.cmu.sv.mobisens.library.managers.MobiSensLibraryApplication;
+import edu.cmu.sv.mobisens.library.api.ContextManager;
 
 
 public class MobiSensClientExampleApplication extends Application {
@@ -13,10 +12,7 @@ public class MobiSensClientExampleApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		
-
-		MobiSensLibraryApplication.applicationInit(this);
-		Configurations.setUsernameAndPassword(this.getApplicationContext(), "mobisensclientexample", "just4now");
-		
+		ContextManager.init(this, "mobisensclientexample", "just4now");
 		
 	}
 
