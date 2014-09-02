@@ -3,26 +3,29 @@ MobiSensClientExample
 
 This is an example application, which demonstrates the usage of the CMU MobiSens Library. 
 
-To quickly test the basic sensing and querying functionalities just clone this git repository and then install the Android application on a mobile device. To use MobiSens Library in your own project, follow the instructions below.
+To quickly test the basic sensing and querying functionalities just clone this MobiSensClientExample git repository and the [MobiSensLibraryProject](https://github.com/CMU-mingzeng/MobiSensLibraryProject) git repository. Check if the [library references](http://developer.android.com/tools/projects/projects-eclipse.html#ReferencingLibraryProject) of the MobiSensClientExample are correct and then install the MobiSensClientExample Android application on a mobile device. To use MobiSens Library in your own project, follow the instructions below.
 
 
 Use MobiSens in an existing app
 ------------
 
+
+Let's assume that an app called **TargetApp** wants to integrate the MobiSens Library functionality. In the following we decribe integration in details.
+
 ### Setup
 
-Copy the following files and text from this MobiSensClientExample project into an existing app:
-
-- copy jar files in the `lib` directory  
-- copy lines in `AndroidManifest.xml`, which are annotated with `<!-- MobiSensLibrary ... -->`
+- clone [MobiSensLibraryProject](https://github.com/CMU-mingzeng/MobiSensLibraryProject) into your workspace
+- set up [library references](http://developer.android.com/tools/projects/projects-eclipse.html#ReferencingLibraryProject) in the **TargetApp** by adding **MobiSensLibraryProject** into the list of refered libraries
+- copy lines in `AndroidManifest.xml` of **MobiSensClient** to the `AndroidManifest.xml` of **TargetApp**, which are annotated with `<!-- MobiSensLibrary ... -->`
 - change ``edu.cmu.sv.mobisens.client.example`` on the following lines of the Manifest to match your app's package name: 
 	- ``<permission android:protectionLevel="signature" android:name="edu.cmu.sv.mobisens.client.example.permission.C2D_MESSAGE" />``
 	- ``<uses-permission android:name="edu.cmu.sv.mobisens.client.example.permission.C2D_MESSAGE" />``
 	- ``<category android:name="edu.cmu.sv.mobisens.client.example" />``
 
-Initialize the library by adding the following line:
+Initialize the library by adding the following into your [Application class](http://developer.android.com/reference/android/app/Application.html):
 
-    Configurations.setUsernameAndPassword(context, <username>, <password>);
+- MobiSensLibraryApplication.applicationInit(Application application);
+- Configurations.setUsernameAndPassword(Context context, "username", "password");
 
 **NOTE: Please request an username and password for your application.**
 
