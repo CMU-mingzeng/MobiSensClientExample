@@ -40,28 +40,28 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-
 		thisActivity = this;
-		
-		
 		
 		toggleAlarmOnOff = (ToggleButton) findViewById(R.id.toggleAlarmOnOff);
 		buttonAlarmStatus = (Button) findViewById(R.id.buttonAlarmStatus);
 		textViewInfo = (TextView) findViewById(R.id.textViewInfo);
 		
+		
+		//CHECKING THE SENSING STATUS
 		toggleAlarmOnOff.setChecked(ContextManager.isSensing(thisActivity));
 		
 		
+		//ACTIVATING/DEACTIVATING SENSING
 		toggleAlarmOnOff.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				
 				if(isChecked){
-					ContextManager.startSensing(thisActivity); //API Call
+					ContextManager.startSensing(thisActivity);
 				}
 				else{
-					ContextManager.stopSensing(thisActivity); //API Call 
+					ContextManager.stopSensing(thisActivity); 
 				}
 				
 			}
@@ -70,7 +70,7 @@ public class MainActivity extends Activity {
 		
 		 
 		
-		
+		//QUERYING ACTIVITY SESSIONS AND ACTIVITY SUMMARY
 		buttonAlarmStatus.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -82,14 +82,12 @@ public class MainActivity extends Activity {
 				sb.append("Sensing activated: ").append(ContextManager.isSensing(thisActivity)).append("\n");
 				sb.append("Sampling rate (ms): ").append(ContextManager.getSensingInterval(thisActivity)).append("\n");
 			
-				
 				textViewInfo.setText(sb.toString()); 
 				
 				
 				
-				
 				/*
-				 * Get activities in a chronological order
+				 * QUERYING ACTIVITY SESSIONS: Get activity sessions in a chronological order
 				 */
 				Calendar cal = Calendar.getInstance();
 //				cal.add(Calendar.HOUR_OF_DAY, -1);
@@ -125,7 +123,7 @@ public class MainActivity extends Activity {
 				
 				
 				/*
-				 * Get a summary of activities for a given duration
+				 * QUERYING ACTIVITY SUMMARY: Get a summary of activities for a given duration
 				 */
 				cal = Calendar.getInstance();
 				cal.add(Calendar.DAY_OF_YEAR, -1);
