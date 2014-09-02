@@ -24,8 +24,7 @@ Let's assume that an app called **TargetApp** wants to integrate the MobiSens Li
 
 Initialize the library by adding the following into your [Application class](http://developer.android.com/reference/android/app/Application.html):
 
-- MobiSensLibraryApplication.applicationInit(Application application);
-- Configurations.setUsernameAndPassword(Context context, "username", "password");
+- ContextManager.init(Application application, "username", "password");
 
 **NOTE: Please request an username and password for your application.**
 
@@ -42,7 +41,7 @@ To stop the data collection:
     
 To check whether the system is currently collecting data:
     
-    Configurations.isSensing(context)
+    ContextManager.isSensing(context)
 
 
 
@@ -50,12 +49,12 @@ To check whether the system is currently collecting data:
 
 By default the sampling interval is set to 60 seconds. This can be updated by calling:
 
-    Configurations.setSensingInterval(context, sensingIntervalInMillis);
+    ContextManager.setSensingInterval(context, sensingIntervalInMillis);
 
 
 To check the current sensing interval call:
 
-    Configurations.getSensingInterval(context)
+    ContextManager.getSensingInterval(context)
 
 
 
