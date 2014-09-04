@@ -14,17 +14,31 @@ Let's assume that an app called **TargetApp** wants to integrate the MobiSens Li
 
 ### Setup
 
-- clone [MobiSensLibraryProject](https://github.com/CMU-mingzeng/MobiSensLibraryProject) into your workspace
-- set up [library references](http://developer.android.com/tools/projects/projects-eclipse.html#ReferencingLibraryProject) in the **TargetApp** by adding **MobiSensLibraryProject** into the list of refered libraries
-- copy lines in `AndroidManifest.xml` of **MobiSensClient** to the `AndroidManifest.xml` of **TargetApp**, which are annotated with `<!-- MobiSensLibrary ... -->`
-- change ``edu.cmu.sv.mobisens.client.example`` on the following lines of the Manifest to match your app's package name: 
-	- ``<permission android:protectionLevel="signature" android:name="edu.cmu.sv.mobisens.client.example.permission.C2D_MESSAGE" />``
-	- ``<uses-permission android:name="edu.cmu.sv.mobisens.client.example.permission.C2D_MESSAGE" />``
-	- ``<category android:name="edu.cmu.sv.mobisens.client.example" />``
+- **Manifest**
+	- clone [MobiSensLibraryProject](https://github.com/CMU-mingzeng/MobiSensLibraryProject) into your workspace
+	- set up [library references](http://developer.android.com/tools/projects/projects-eclipse.html#ReferencingLibraryProject) in the **TargetApp** by adding **MobiSensLibraryProject** into the list of refered libraries
 
-Initialize the library by adding the following into your [Application class](http://developer.android.com/reference/android/app/Application.html):
 
-- ContextManager.init(Application application, "username", "password");
+- **Manifest**
+	- copy lines in `AndroidManifest.xml` of **MobiSensClient** to the `AndroidManifest.xml` of **TargetApp**, which are annotated with `<!-- MobiSensLibrary ... -->`
+	- change ``edu.cmu.sv.mobisens.client.example`` on the following lines of the Manifest to match your app's package name: 
+		- ``<permission android:protectionLevel="signature" android:name="edu.cmu.sv.mobisens.client.example.permission.C2D_MESSAGE" />``
+		- ``<uses-permission android:name="edu.cmu.sv.mobisens.client.example.permission.C2D_MESSAGE" />``
+		- ``<category android:name="edu.cmu.sv.mobisens.client.example" />``
+
+- **Application class** ([more details](http://developer.android.com/reference/android/app/Application.html))
+	
+	- Add to the top of the Application class:
+		- ``import org.acra.annotation.*;``
+		``@ReportsCrashes(formKey="",
+		    formUri = "https://mobisens.cloudant.com/acra-mobisens/_design/acra-storage/_update/report",
+		    reportType = org.acra.sender.HttpSender.Type.JSON,
+		    httpMethod = org.acra.sender.HttpSender.Method.PUT
+		)``
+	- Add to the onCreate() of the Application class:
+		- ``ContextManager.init(Application application, "username", "password");``
+
+
 
 **NOTE: Please request an username and password for your application.**
 
